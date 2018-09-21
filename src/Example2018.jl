@@ -18,8 +18,6 @@ mutable struct MPoint{T}
     y::T
 end
 
-
-
 ###############################################################################
 
 
@@ -49,7 +47,7 @@ end
 function Base. *(a, p::Polynomial)
     Polynomial(map(x->a*x, p.coeffs))
 end
-Base .*(p::Polynomial, a) = a*p
+Base. *(p::Polynomial, a) = a*p
 
 export deriv
 function deriv(p::Polynomial)
