@@ -21,20 +21,17 @@ end
 ###############################################################################
 
 
-
+#### defined polynomial type
 export Polynomial
 struct Polynomial{T}
     coeffs::Vector{T}
 end
 
-export evaluate
-function evaluate(p::Polynomial, x)
-    sum(c * x^(i-1) for (i,c) in enumerate(p.coeffs))
-end
+# edit base function for type polynomial
 
 function Base. +(p::Polynomial, q::Polynomial)
     l = max(length(p.coeffs), length(q.coeffs))
-    rcoeffs = zeros(l)
+    rcoeffs = zeros(eltype(p.coeffs),l)
     for (i,c) in enumerate(p.coeffs)
         rcoeffs[i] += c
     end
@@ -44,16 +41,40 @@ function Base. +(p::Polynomial, q::Polynomial)
     Polynomial(rcoeffs)
 end
 
+
 function Base. *(a, p::Polynomial)
     Polynomial(map(x->a*x, p.coeffs))
 end
 Base. *(p::Polynomial, a) = a*p
 
+
+function Base. -(p::Polynomial)
+    (-1) * p
+end
+
+
+function Base. -(p::Polynomial,q::Polynomial)
+    p + (-q)
+end
+
+
+function Base. ==(p::Polynomial,q::Polynomial)
+    d = p - q
+    #all(c -> c==0, d.coeffs)
+    # or
+    all(d.coeffs .== 0)
+end
+
+
+##### function on Polynomial
+export evaluate
+function evaluate(p::Polynomial, x)
+    sum(c * x^(i-1) for (i,c) in enumerate(p.coeffs))
+end
+
 export deriv
 function deriv(p::Polynomial)
     Polynomial([(i-1) * c for (i,c) in enumerate(p.coeffs)][2:end])
 end
-
-
 
 end
