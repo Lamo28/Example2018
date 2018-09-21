@@ -9,7 +9,18 @@ using Test
 # 4. addition commutes
 # 5. multipilcation is ... (not code this part on the code)
 
-z = Polynomial([0])
-p = Polynomial([1,2,3])
+@testset "Polynomials form a ring" begin
 
-@test p + z == p
+    z = Polynomial([0])
+
+    for n in 1:100
+
+        deg = rand(0:100)
+        p = Polynomial(rand(-10000000:10000000,deg+1))
+
+        @test p + z == p
+        @test z + p == p
+        @test p + (-p) == z
+    end
+
+end
