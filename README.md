@@ -3,3 +3,5 @@
 This is test !
 
 [![Build Status](https://travis-ci.org/Lamo28/Example2018-1.svg?branch=master)](https://travis-ci.org/Lamo28/Example2018-1)
+
+This is a test because I'm a bit dump

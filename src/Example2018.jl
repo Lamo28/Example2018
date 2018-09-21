@@ -18,6 +18,9 @@ mutable struct MPoint{T}
     y::T
 end
 
+function stupidefunction()
+    return 0
+end
 ###############################################################################
 
 
