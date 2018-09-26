@@ -77,4 +77,24 @@ function deriv(p::Polynomial)
     Polynomial([(i-1) * c for (i,c) in enumerate(p.coeffs)][2:end])
 end
 
+
+#### play with package
+
+# ApproxFun package
+# ForwardDiff package
+# ReverseDiff
+
+# Rewrite.jl julia
+# JuliaGraphs : not working with 1.0 for now
+
+# BenchmarkTools
+# check profile stuff for performance
+
+# PyCall call python package into Julia
+# Interact: have interacting stuff in Julia
+
+# see package for
+# how to store the data ? : CSV : nice but not super efficient
+                            HDF5 file, see package
+
 end
