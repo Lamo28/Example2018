@@ -95,6 +95,8 @@ end
 
 # see package for
 # how to store the data ? : CSV : nice but not super efficient
-                            HDF5 file, see package
+#                            HDF5 file, see package
 
+# FunctionalCollections package
+#
 end
